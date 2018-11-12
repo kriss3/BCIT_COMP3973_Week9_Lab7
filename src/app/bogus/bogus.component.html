@@ -1,0 +1,14 @@
+<p id="myTitle">
+  This is my Bogus Component
+</p>
+<p [ngStyle]="{'background-color': 'blue', 'color': 'white', width: temperature}">The temperature is {{temperature}}</p>
+
+<input [(ngModel)]="temperature" />
+<br />
+<button (click)="onClick()">Click Me</button>
+<hr />
+<table *ngIf = "isOk">
+  <tr *ngFor="let t of taskSrv.tasks">
+    <td>{{t}}</td>
+  </tr>
+</table>

@@ -1,0 +1,44 @@
+<div class="col-md-6">
+    <h2 class="text-center">{{studentFormLabel}}</h2>
+    <form [formGroup]="editForm" novalidate class="form">
+
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input formControlName="FirstName" placeholder="First Name" name="firstName" class="form-control" id="FirstName">
+        <div class="alert  alert-danger" *ngIf="editForm.get('FirstName').hasError('required') && editForm.get('FirstName').touched">
+          First Name required !
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input formControlName="LastName" placeholder="Last Name" name="lastName" class="form-control" id="LastName">
+        <div class="alert  alert-danger" *ngIf="editForm.get('LastName').hasError('required') && editForm.get('LastName').touched">
+          Last Name required !
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="school">School:</label>
+        <input formControlName="School" placeholder="School Name" name="school" class="form-control" id="School">
+        <div class="alert  alert-danger" *ngIf="editForm.get('School').hasError('required') && editForm.get('School').touched">
+          School Name required !
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="startDate">Start Date:</label>
+        <input type="datetime-local" formControlName="Startdate" placeholder="Start Date" name="startDate" class="form-control" id="StartDate">
+        <div class="alert  alert-danger" *ngIf="editForm.get('Startdate').hasError('required') && editForm.get('Startdate').touched">
+          Start Date required !
+        </div>
+      </div>
+  
+      <button class="btn btn-success" [disabled]='editForm.invalid' *ngIf="btnvisibility" (click)="onUpdate()">Update</button>
+      
+      <button class="btn btn-success" [disabled]='editForm.invalid' *ngIf="!btnvisibility" (click)="onUpdate()">Update</button> 
+
+      <br/><br/>
+      <p>Form value: {{ editForm.value | json }}</p>
+    </form>
+  </div>

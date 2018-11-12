@@ -1,0 +1,17 @@
+
+<div class="col-md-6">
+  <h2 class="text-center">{{studentFormLabel}}</h2>
+
+  <div class="card">
+    <ul>
+      <li><strong>Student Id: </strong>{{std.studentId}}</li>
+      <li><strong>First Name: </strong>{{std.firstName}}</li>
+      <li><strong>Last Name: </strong>{{std.lastName}}</li>
+      <li><strong>School Name: </strong>{{std.school}}</li>
+      <li><strong>Start Date: </strong>{{std.startDate | date: 'yyyy-MM-dd'}}</li>
+    </ul>
+  </div>
+
+  <button class="btn btn-success" (click)="onEdit(std)">Edit</button>
+    
+</div>

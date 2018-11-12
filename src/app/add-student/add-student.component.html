@@ -1,0 +1,42 @@
+<div class="col-md-6">
+  <h2 class="text-center">{{studentFormLabel}}</h2>
+  <form [formGroup]="addForm" novalidate class="form">
+
+    <div class="form-group">
+      <label for="firstName">First Name:</label>
+      <input formControlName="FirstName" placeholder="First Name" name="firstName" class="form-control" id="FirstName">
+      <div class="alert  alert-danger" *ngIf="addForm.get('FirstName').hasError('required') && addForm.get('FirstName').touched">
+        First Name required !
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Last Name:</label>
+      <input formControlName="LastName" placeholder="Last Name" name="lastName" class="form-control" id="LastName">
+      <div class="alert  alert-danger" *ngIf="addForm.get('LastName').hasError('required') && addForm.get('LastName').touched">
+        Last Name required !
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="school">School:</label>
+      <input formControlName="School" placeholder="School Name" name="school" class="form-control" id="School">
+      <div class="alert  alert-danger" *ngIf="addForm.get('School').hasError('required') && addForm.get('School').touched">
+        School Name required !
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="startDate">Start Date:</label>
+      <input type="date" formControlName="Startdate" placeholder="Start Date" name="startDate" class="form-control" id="StartDate">
+      <div class="alert  alert-danger" *ngIf="addForm.get('Startdate').hasError('required') && addForm.get('Startdate').touched">
+        Start Date required !
+      </div>
+    </div>
+
+    <button class="btn btn-success" [disabled]='addForm.invalid' *ngIf="btnvisibility" (click)="onCreate()">Create</button>
+    
+    <br/><br/>
+    <p>Form value: {{ addForm.value | json }}</p>
+  </form>
+</div>
