@@ -2,8 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import {HttpModule} from '@angular/http';
-
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from "@angular/router";
@@ -31,7 +30,7 @@ import { StudentService } from './services/student.service';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: 'students', component: StudentComponent },
       { path: 'add-student', component: AddStudentComponent },

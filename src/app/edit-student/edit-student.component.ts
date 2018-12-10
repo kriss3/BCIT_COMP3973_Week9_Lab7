@@ -3,6 +3,7 @@ import { StudentService } from '../services/student.service';
 import { Router } from '@angular/router';
 import { Student } from '../models/student';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-edit-student',
@@ -41,7 +42,7 @@ export class EditStudentComponent implements OnInit {
       //  this.addForm.patchValue(data);
       //})
 
-      this._svc.getStudentsPromiseById(+myStudentId).then(data=>{
+      this._svc.getStudentById(+myStudentId).subscribe(data=>{
         this.editForm.patchValue({
           StudentId: data.studentId,
           FirstName: data.firstName,
@@ -60,7 +61,8 @@ export class EditStudentComponent implements OnInit {
 
   onUpdate(): void{
     alert('Callig API with Updated record for Id: ' + this.editForm.value.StudentId);
-    this._svc.updateStudentPromise(this.editForm.value).then(x=>{
+    this._svc.updateStudentObs(this.editForm.value)
+    .subscribe(x=>{
       this.myRouter.navigate(['student']);
     });  
   }

@@ -23,8 +23,8 @@ export class ViewStudentComponent implements OnInit {
     let myStudentId = localStorage.getItem('viewStudentId');
     alert('Student Id: ' + myStudentId);
 
-    this._svc.getStudentsPromiseById(+myStudentId)
-      .then(data=>{
+    this._svc.getStudentById(+myStudentId)
+      .subscribe(data=>{
         this.std = data as Student;
       });
   }

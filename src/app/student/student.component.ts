@@ -20,16 +20,8 @@ export class StudentComponent implements OnInit {
   }
   
   getStudentsPromise(): void {
-    this._svc.getStudentsPromise()
-    .then(data => this.studentArray = data);
-  }
-  
-  getStudentsObservable(): void {
-    this._svc.getStudentsObservable()
-      .subscribe(
-        data => this.studentArray= data,
-        error => console.log(error)
-      );
+    this._svc.getStudents()
+    .subscribe(data => this.studentArray = data);
   }
 
   onView(rec): void{
@@ -54,7 +46,7 @@ export class StudentComponent implements OnInit {
 
   onDelete(rec): void{
     alert('Calling student Service Delete Method with Id: ' + rec.studentId);
-    this._svc.delteStudentPromist(rec.studentId).then(data => {
+    this._svc.deleteStudentObs(rec.studentId).subscribe(data => {
       alert("Record Id: " + rec.studentId + " deleted Successful !");
       this.refresh();
     });

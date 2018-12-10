@@ -34,8 +34,9 @@ export class AddStudentComponent implements OnInit {
       //  this.addForm.patchValue(data);
       //})
 
-      var data = this._svc.getStudentsPromiseById(+studentId);
-      this.addForm.patchValue(data);
+      this._svc.getStudentById(+studentId).subscribe(data=>
+        this.addForm.patchValue(data)
+      );
 
       this.btnvisibility = false;
       this.studentFormLabel = 'Add Student';
@@ -45,7 +46,7 @@ export class AddStudentComponent implements OnInit {
 
   onCreate(): void {
     alert('Saving Record: ' + JSON.stringify(this.addForm.value));
-    this._svc.addStudentPromise(this.addForm.value).then(data => {
+    this._svc.addStudentObs(this.addForm.value).subscribe(data => {
       this.myRouter.navigate(['student']);
     });
   }
