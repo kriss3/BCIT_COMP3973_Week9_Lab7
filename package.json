@@ -26,7 +26,8 @@
     "rxjs": "~6.3.3",
     "zone.js": "~0.8.26",
     "webpack-dev-server": ">=3.1.11",
-    "tar": ">=4.4.2"
+    "tar": ">=4.4.2",
+    "karma": ">=6.3.14"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.13.8",
@@ -39,7 +40,7 @@
     "codelyzer": "~4.5.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
-    "karma": "~3.0.0",
+    "karma": ">=6.3.14",
     "karma-chrome-launcher": "~2.2.0",
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~1.1.2",
